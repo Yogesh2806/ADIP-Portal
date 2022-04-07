@@ -1,38 +1,232 @@
+body,
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.navLinks > * {
+  text-decoration: none;
+  color: rgb(199, 199, 199);
+  padding: 0 0.5rem 0 0.5rem;
+  font-family: "Roboto", sans-serif;
+}
+.navLinks > *:hover {
+  color: rgb(255, 255, 255);
+}
+
+.carouselPics {
+  display: block;
+  width: 90%;
+  height: 80vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4.5rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.carouselCaption {
+  background-color: rgba(29, 29, 29, 0.7);
+  padding: 1em;
+}
+.heading {
+  text-align: center;
+  padding-top: 2rem;
+}
+.info1,
+.info2,
+.info3 {
+  padding: 0 5rem 2rem 5rem;
+}
+.footer {
+  background-color: #212529;
   color: white;
+  width: 100%;
+  position: sticky;
+  top: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+/* Form */
+.uid {
+  color: rgb(3, 0, 189);
+}
+.UIcardHolder {
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+.UIcard {
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+}
+.CardContainer {
+  width: 80%;
+  height: 50vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: auto;
+}
+.frontPage,
+.backPage {
+  width: 40rem;
+  height: 20rem;
+  background-color: wheat;
+  border-radius: 0.25rem;
+}
+.cardHeading {
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+.cardHeading::after {
+  content: "";
+  width: 85%;
+  height: 0.05rem;
+  background-color: #212529;
+  position: absolute;
+  bottom: 1.4rem;
+}
+.cardBody {
+  width: 90%;
+  height: 18vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+.cardInfo {
+  width: 70%;
+}
+.cardUID {
+  width: 70%;
+  height: 5vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: auto;
+}
+.buttonHolder > Button {
+  margin: 1rem;
+  color: #212529;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* CSS VARIABLES */
+
+:root {
+  --bg: #e4e4e4;
+  --color-primary: #363b3f;
+  --color-white: #ffffff;
+}
+
+.chatBotIcon {
+  background: var(--color-primary);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  width: 67px;
+  height: 67px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chatClick {
+  cursor: pointer;
+  position: fixed;
+  bottom: 1rem;
+  right: 2rem;
+  z-index: 10;
+}
+.chatBot {
+  width: 416px;
+  min-height: 629px;
+  background: var(--color-white);
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.08);
+  border-radius: 0.5rem;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 300ms linear;
+}
+.chatHeading {
+  padding: 1rem;
+  height: 10vh;
+}
+.chatMessage {
+  padding: 1rem;
+  height: 50vh;
+  background-color: whitesmoke;
+}
+.chatInput {
+  width: 100%;
+  height: 5vh;
+}
+.chatInput > input {
+  width: 80%;
+  height: 3rem;
+  font-size: 1rem;
+}
+.chatInput > button {
+  width: 20%;
+  height: 3rem;
+  background-color: #212529;
+  color: white;
+  outline: none;
+  border: 0.25rem;
+}
+
+/* ACTIVE CLASSES */
+
+.chatActive {
+  position: fixed;
+  transform: translateY(-4rem);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: visible;
+  transition: all 300ms linear;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 460px) {
+  .chatBot {
+    width: 100%;
+    height: 640px;
+    position: fixed;
+    bottom: 4rem;
+    right: 0rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 300ms linear;
   }
-  to {
-    transform: rotate(360deg);
+
+  .chatActive {
+    position: absolute;
+    transform: translateY(-2rem);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: visible;
+    transition: all 200ms linear;
   }
+}
+
+.eyeIcon {
+  position: relative;
+  left: 90%;
+  bottom: 4rem;
+  cursor: pointer;
+}
+.eyeIcon2 {
+  position: relative;
+  left: 90%;
+  bottom: 5rem;
+  cursor: pointer;
 }
