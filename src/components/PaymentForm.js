@@ -8,7 +8,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import Radio from "@mui/material/Radio";
 import Checkbox from "@mui/material/Checkbox";
 
-export default function PaymentForm() {
+export default function PaymentForm({ data, setdata }) {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -21,7 +21,8 @@ export default function PaymentForm() {
           </FormLabel>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
-            defaultValue="male"
+            value={data.speakEnglish}
+            onChange={(e) => setdata({ ...data, speakEnglish: e.target.value })}
             name="radio-buttons-group"
           >
             <FormControlLabel value="yes" control={<Radio />} label="Yes" />
@@ -43,6 +44,8 @@ export default function PaymentForm() {
             fullWidth
             autoComplete="cc-name"
             variant="outlined"
+            value={data.lang}
+            onChange={(e) => setdata({ ...data, lang: e.target.value })}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -51,7 +54,10 @@ export default function PaymentForm() {
           </FormLabel>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
-            defaultValue="male"
+            value={data.moreThanOnename}
+            onChange={(e) =>
+              setdata({ ...data, moreThanOnename: e.target.value })
+            }
             name="radio-buttons-group"
           >
             <FormControlLabel value="yes" control={<Radio />} label="Yes" />
@@ -64,7 +70,8 @@ export default function PaymentForm() {
           </FormLabel>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
-            defaultValue="male"
+            value={data.citizen}
+            onChange={(e) => setdata({ ...data, citizen: e.target.value })}
             name="radio-buttons-group"
           >
             <FormControlLabel value="yes" control={<Radio />} label="Yes" />
@@ -77,7 +84,8 @@ export default function PaymentForm() {
           </FormLabel>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
-            defaultValue="male"
+            value={data.govScheme}
+            onChange={(e) => setdata({ ...data, govScheme: e.target.value })}
             name="radio-buttons-group"
           >
             <FormControlLabel value="yes" control={<Radio />} label="Yes" />
@@ -95,6 +103,8 @@ export default function PaymentForm() {
             fullWidth
             autoComplete="cc-exp"
             variant="outlined"
+            value={data.govPosition}
+            onChange={(e) => setdata({ ...data, govPosition: e.target.value })}
           />
         </Grid>
         <Grid item xs={12}>

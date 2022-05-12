@@ -8,7 +8,7 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormLabel from "@mui/material/FormLabel";
 
-export default function AddressForm() {
+export default function AddressForm({ data, setdata }) {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -24,6 +24,16 @@ export default function AddressForm() {
             fullWidth
             autoComplete="given-name"
             variant="outlined"
+            value={data.firstName}
+            onChange={(e) => setdata({ ...data, firstName: e.target.value })}
+            // error={data.firstName === ""}
+            // helperText={data.firstName === "" ? "Empty field!" : " "}
+            // error={data.firstName !== "" && !data.firstName.match("[^A-Z_.]")}
+            // helperText={
+            //   data.firstName !== "" && data.firstName.match("[^A-Z_.]")
+            //     ? ""
+            //     : "Use Capital"
+            // }
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -35,6 +45,14 @@ export default function AddressForm() {
             fullWidth
             autoComplete="family-name"
             variant="outlined"
+            value={data.lastName}
+            onChange={(e) => setdata({ ...data, lastName: e.target.value })}
+            // error={data.lastName !== "" && !data.lastName.match("[^A-Z_.]")}
+            // helperText={
+            //   data.lastName !== "" && data.lastName.match("[^A-Z_.]")
+            //     ? ""
+            //     : "Use Capital"
+            // }
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -46,6 +64,14 @@ export default function AddressForm() {
             fullWidth
             autoComplete="family-name"
             variant="outlined"
+            value={data.guardian}
+            onChange={(e) => setdata({ ...data, guardian: e.target.value })}
+            // error={data.guardian !== "" && !data.guardian.match("[^A-Z_.]")}
+            // helperText={
+            //   data.guardian !== "" && data.guardian.match("[^A-Z_.]")
+            //     ? ""
+            //     : "Use Capital"
+            // }
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -57,14 +83,30 @@ export default function AddressForm() {
             fullWidth
             autoComplete="family-name"
             variant="outlined"
+            value={data.contact}
+            onChange={(e) => setdata({ ...data, contact: e.target.value })}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="dob"
+            name="number"
+            label="DOB (dd/mm/yyyy)"
+            fullWidth
+            autoComplete="family-name"
+            variant="outlined"
+            value={data.dob}
+            onChange={(e) => setdata({ ...data, dob: e.target.value })}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
-            defaultValue="male"
             name="radio-buttons-group"
+            value={data.gender}
+            onChange={(e) => setdata({ ...data, gender: e.target.value })}
           >
             <FormControlLabel
               value="female"
@@ -81,7 +123,10 @@ export default function AddressForm() {
           </FormLabel>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
-            defaultValue="single"
+            value={data.realtionStatus}
+            onChange={(e) =>
+              setdata({ ...data, realtionStatus: e.target.value })
+            }
             name="radio-buttons-group"
           >
             <FormControlLabel
@@ -110,6 +155,8 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping address-line1"
             variant="outlined"
+            value={data.addressLine1}
+            onChange={(e) => setdata({ ...data, addressLine1: e.target.value })}
           />
         </Grid>
         <Grid item xs={12}>
@@ -120,6 +167,8 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping address-line2"
             variant="outlined"
+            value={data.addressLine2}
+            onChange={(e) => setdata({ ...data, addressLine2: e.target.value })}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -131,6 +180,8 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping address-level2"
             variant="outlined"
+            value={data.city}
+            onChange={(e) => setdata({ ...data, city: e.target.value })}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -140,6 +191,8 @@ export default function AddressForm() {
             label="State/Province/Region"
             fullWidth
             variant="outlined"
+            value={data.state}
+            onChange={(e) => setdata({ ...data, state: e.target.value })}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -151,6 +204,8 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping postal-code"
             variant="outlined"
+            value={data.zip}
+            onChange={(e) => setdata({ ...data, zip: e.target.value })}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -162,6 +217,8 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping country"
             variant="outlined"
+            value={data.country}
+            onChange={(e) => setdata({ ...data, country: e.target.value })}
           />
         </Grid>
         <Grid item xs={12}>

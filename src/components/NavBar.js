@@ -6,33 +6,40 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../icons/logo.png";
 import { useLocation, useNavigate } from "react-router-dom";
+import * as actionType from "../constants/actionTypes";
+import decode from "jwt-decode";
+import { useDispatch } from "react-redux";
 
 const NavBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
-  const [user, setUser] = useState();
-  const [tokenId, setTokenId] = useState(
-    JSON.parse(localStorage.getItem("token"))
-  );
+  const dispatch = useDispatch();
+
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  // const [user, setUser] = useState();
+  // const [tokenId, setTokenId] = useState(
+  //   JSON.parse(localStorage.getItem("token"))
+  // );
 
   const logout = () => {
+    dispatch({ type: actionType.LOGOUT });
     navigate("/");
+    setUser(null);
 
     // setUser(null);
     // setTokenId(null);
 
-    localStorage.removeItem("profile");
-    localStorage.removeItem("token");
+    // localStorage.removeItem("profile");
+    // localStorage.removeItem("token");
   };
 
   useEffect(() => {
     // const token = JSON.parse(localStorage.getItem("token"));
 
-    const profileData = JSON.parse(localStorage.getItem("profile"));
+    // const profileData = JSON.parse(localStorage.getItem("profile"));
 
-    setUser(profileData);
+    // setUser(profileData);
 
     // setUser(JSON.parse(localStorage.getItem("profile")));
     // console.log(user.name);
@@ -42,6 +49,16 @@ const NavBar = () => {
     // const decodedToken = decode(token);
     // if (decodedToken.exp * 1000 < new Date().getTime()) logout();
     // }
+
+    const token = user?.token;
+
+    if (token) {
+      const decodedToken = decode(token);
+
+      if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+    }
+
+    setUser(JSON.parse(localStorage.getItem("profile")));
   }, [location]);
 
   return (
@@ -60,19 +77,19 @@ const NavBar = () => {
           </Navbar.Brand>
           <Nav className="me-auto navLinks">
             <Link to="/">Home</Link>
-            <Link to="#">Contact</Link>
+            <Link to="contact">Contact</Link>
           </Nav>
-          {user && user ? (
+          {user?.result ? (
             <>
               <Nav className=" navLinks">
                 <Avatar
-                  alt={user?.name}
-                  src={user?.imageUrl}
+                  alt={user?.result.name}
+                  src={user?.result.imageUrl}
                   className="userImage"
                 >
-                  {user?.name.charAt(0)}
+                  {user?.name}
                 </Avatar>
-                <Typography variant="h6">{user?.name}</Typography>
+                <Typography variant="h6">{user?.result.name}</Typography>
                 <Button variant="outlined" onClick={logout}>
                   Logout
                 </Button>
@@ -82,7 +99,6 @@ const NavBar = () => {
             <>
               <Nav className=" navLinks">
                 <Link to="/signup">Sign Up</Link>
-                <Link to="/signin">Sign In</Link>
               </Nav>
             </>
           )}

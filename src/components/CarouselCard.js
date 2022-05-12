@@ -14,25 +14,25 @@ const CarouselCard = () => {
       <Carousel.Item>
         <img className="carouselPics" src={p8} alt="First slide" />
         <Carousel.Caption className="carouselCaption">
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>Support</h3>
+          <p>National disability sansthan .</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img className="carouselPics" src={p7} alt="Second slide" />
 
         <Carousel.Caption className="carouselCaption">
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Rise</h3>
+          <p>Disability Seva under governemt act.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img className="carouselPics" src={p5} alt="Third slide" />
 
         <Carousel.Caption className="carouselCaption">
-          <h3>Third slide label</h3>
+          <h3>Togetherness</h3>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+           Improvement in society.
           </p>
         </Carousel.Caption>
       </Carousel.Item>

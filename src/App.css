@@ -11,6 +11,31 @@ body,
 .navLinks > *:hover {
   color: rgb(255, 255, 255);
 }
+.ucardlink {
+  text-decoration: none;
+  border: 2px solid rgb(32, 32, 252);
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
+.infoLink {
+  text-decoration: none;
+  border: 1px solid rgb(32, 32, 252);
+  border-radius: 0.3rem;
+  padding: 0.3rem 1rem 0.3rem 1rem;
+  margin-right: 1rem;
+}
+.downloadLink {
+  text-decoration: none;
+  border-radius: 0.3rem;
+  background-color: rgb(32, 32, 252);
+  color: white;
+  padding: 0.3rem 1rem 0.4rem 1rem;
+}
+.downloadLink:hover {
+  color: rgb(32, 32, 252);
+  background-color: white;
+  border: 1px solid rgb(32, 32, 252);
+}
 
 .carouselPics {
   display: block;
@@ -62,12 +87,13 @@ body,
   display: flex;
 }
 .CardContainer {
-  width: 80%;
-  height: 50vh;
+  min-width: 95%;
+  min-height: 75vh;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   margin: auto;
+  flex-wrap: wrap;
 }
 .frontPage,
 .backPage {
@@ -133,6 +159,7 @@ body,
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 10;
 }
 .chatClick {
   cursor: pointer;
@@ -154,6 +181,7 @@ body,
   visibility: hidden;
   pointer-events: none;
   transition: all 300ms linear;
+  z-index: 10;
 }
 .chatHeading {
   padding: 1rem;
@@ -180,6 +208,16 @@ body,
   color: white;
   outline: none;
   border: 0.25rem;
+}
+.errorMSG {
+  color: red;
+}
+.submitBtn {
+  margin-bottom: 1.5rem !important;
+  margin-top: 1.5rem !important;
+}
+.switchButton {
+  margin-top: 1rem !important;
 }
 
 /* ACTIVE CLASSES */
@@ -229,4 +267,26 @@ body,
   left: 90%;
   bottom: 5rem;
   cursor: pointer;
+}
+
+/* InfoPage */
+
+.infoSection {
+  width: 100%;
+  min-height: 83vh;
+  background-color: #f5f5f5;
+  color: rgb(26, 26, 26);
+}
+.infoPage {
+  width: 80%;
+  margin: auto;
+  min-height: 80vh;
+}
+.infoHeading {
+  text-align: center;
+}
+.infoDetails {
+  margin-top: 2rem;
+  width: 80%;
+  margin: auto;
 }
