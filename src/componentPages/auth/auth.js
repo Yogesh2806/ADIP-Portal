@@ -25,6 +25,7 @@ const theme = createTheme();
 const SignUp = () => {
   const [form, setForm] = useState(initialState);
   const [isSignup, setIsSignup] = useState(false);
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // const classes = useStyles();
@@ -42,9 +43,9 @@ const SignUp = () => {
     e.preventDefault();
 
     if (isSignup) {
-      dispatch(signup(form, navigate));
+      dispatch(signup(form, navigate, setError));
     } else {
-      dispatch(signin(form, navigate));
+      dispatch(signin(form, navigate, setError));
     }
   };
 
@@ -131,6 +132,7 @@ const SignUp = () => {
                 />
               )}
             </Grid>
+            {error && <div className="errorMSG">{error}</div>}
             <Button
               type="submit"
               fullWidth
