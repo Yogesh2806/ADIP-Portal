@@ -5,16 +5,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/NavBar";
 import Home from "./componentPages/Home";
 import StickyFooter from "./components/StickyFooter";
-// import SignIn from "./componentPages/SignIn";
-// import SignUp from "./componentPages/SignUp";
 import OnboardCheckout from "./componentPages/OnboardCheckout";
 import UniqueCardPage from "./componentPages/CardPage";
-import ChatBot from "./componentPages/ChatBot";
 import { useDispatch } from "react-redux";
 import { getPosts } from "./actions/posts";
 import InfoPage from "./componentPages/InfoPage";
 import ContactPage from "./componentPages/ContactPage";
 import SignUp from "./componentPages/auth/auth";
+import Faq from "./componentPages/Faq";
+import Downloads from "./componentPages/Downloads";
+import NationalList from "./componentPages/NationalList";
+import Request from "./componentPages/Request";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,13 +28,15 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <NavBar />
-        <ChatBot />
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/signin" element={<SignIn />} /> */}
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/faq" element={<Faq />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/onboarding" element={<OnboardCheckout />} />
+          <Route path="/downloads" element={<Downloads />} />
+          <Route path="/request" element={<Request />} />
+          <Route path="/info/nationalList" element={<NationalList />} />
           <Route path="/ucard" element={<UniqueCardPage />} />
           <Route path="/info" element={<InfoPage />} />
         </Routes>

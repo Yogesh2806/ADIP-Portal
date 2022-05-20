@@ -3,6 +3,9 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { useSelector } from "react-redux";
 import extension from "../ucardPDF/Medical.pdf";
+import final2021 from "../ucardPDF/final2021.xlsx";
+import report from "../ucardPDF/report.pdf";
+import { Link } from "react-router-dom";
 
 const InfoPage = () => {
   const posts = useSelector((state) => state.posts);
@@ -75,7 +78,7 @@ const InfoPage = () => {
             <div className="infoPage">
               <div className="infoHeading">
                 <Typography variant="h4" gutterBottom>
-                  Beneficiaries
+                  List of Benefits By Implemention Agency
                 </Typography>
               </div>
               <div className="infoDetails">
@@ -130,17 +133,43 @@ const InfoPage = () => {
                       Rs. 2,000 to 4,000 will be credited to account based on
                       severity.
                     </Typography>
-                    <a
-                      className="downloadLink"
-                      href={extension}
-                      download
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Download
-                    </a>
+                    <div className="downloadbuttons">
+                      <a
+                        className="downloadLink"
+                        href={extension}
+                        download
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Download Eligibility
+                      </a>
+                      <a
+                        className="downloadLink"
+                        href={final2021}
+                        download
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Download 2021 List
+                      </a>
+                      <a
+                        className="downloadLink"
+                        href={report}
+                        download
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Download Check Report
+                      </a>
+                    </div>
                   </Grid>
                 </Grid>
+                <div className="nationalSection">
+                  <h3>
+                    To Get National support Requirements and Requests
+                    <Link to="nationalList">Click Here</Link>
+                  </h3>
+                </div>
               </div>
             </div>
           </div>

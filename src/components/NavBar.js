@@ -9,6 +9,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import * as actionType from "../constants/actionTypes";
 import decode from "jwt-decode";
 import { useDispatch } from "react-redux";
+import final2022 from "../ucardPDF/final2022.xlsx";
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -73,14 +74,31 @@ const NavBar = () => {
               height="30"
               className="d-inline-block align-top"
             />
-            NDM
+            ADIP SEVA
           </Navbar.Brand>
           <Nav className="me-auto navLinks">
             <Link to="/">Home</Link>
             <Link to="contact">Contact</Link>
+            <Link to="faq">FAQ</Link>
+            <a
+              style={{
+                color: "wheat",
+              }}
+              href={final2022}
+              download
+              target="_blank"
+              rel="noreferrer"
+            >
+              Latest Beneficiary Quota
+            </a>
           </Nav>
           {user?.result ? (
             <>
+              <Nav className=" navLinks">
+                <Link to="/onboarding">Fill New Entity</Link>
+                <Link to="/ucard">Get UDID</Link>
+                <Link to="/downloads">Download Schemes</Link>
+              </Nav>
               <Nav className=" navLinks">
                 <Avatar
                   alt={user?.result.name}
@@ -98,7 +116,7 @@ const NavBar = () => {
           ) : (
             <>
               <Nav className=" navLinks">
-                <Link to="/signup">Sign Up</Link>
+                <Link to="/signup">Login / Register</Link>
               </Nav>
             </>
           )}

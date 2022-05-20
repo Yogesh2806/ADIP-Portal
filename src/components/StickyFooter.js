@@ -31,7 +31,8 @@ function StickyFooter() {
     >
       <Container maxWidth="sm">
         <Typography variant="body1">
-          Need more Information please contact to (+91)1234567890
+          Need more Information please contact to :1800-599-0019 :011 24369027
+          :011 24365053 :011 24369054
         </Typography>
         <Copyright />
       </Container>

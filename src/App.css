@@ -30,11 +30,18 @@ body,
   background-color: rgb(32, 32, 252);
   color: white;
   padding: 0.3rem 1rem 0.4rem 1rem;
+  margin-right: 1rem;
 }
 .downloadLink:hover {
   color: rgb(32, 32, 252);
   background-color: white;
   border: 1px solid rgb(32, 32, 252);
+}
+.downloadbuttons {
+  margin-top: 1rem;
+}
+.nationalSection {
+  margin-top: 2rem;
 }
 
 .carouselPics {
@@ -152,7 +159,7 @@ body,
 
 .chatBotIcon {
   background: var(--color-primary);
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 15px rgba(63, 63, 63, 0.15);
   border-radius: 50%;
   width: 67px;
   height: 67px;
@@ -284,9 +291,76 @@ body,
 }
 .infoHeading {
   text-align: center;
+  padding: 2rem;
 }
 .infoDetails {
   margin-top: 2rem;
   width: 80%;
   margin: auto;
+}
+
+.national-list {
+  width: 100%;
+  min-height: 50vh;
+  display: grid;
+  place-content: center;
+}
+.cards {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.paycontainer {
+  max-width: 800px;
+  min-height: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.5rem 1.5rem;
+}
+.leftcard {
+  flex-basis: 50%;
+}
+.rightcard {
+  flex-basis: 50%;
+}
+.payform {
+  padding: 1rem;
+}
+
+.rightcard > h3 {
+  margin-top: 1rem;
+  color: #2c3e50;
+}
+
+#zip {
+  display: flex;
+  margin-top: 0.5rem;
+}
+#zip select {
+  padding: 0.5rem 0.7rem;
+}
+#zip .cvv {
+  padding: 0.5rem 0.7rem;
+  margin-left: 5px;
+}
+.payBtn {
+  width: 100%;
+  padding: 0.7rem 1.5rem;
+  background: #34495e;
+  color: white;
+  border: none;
+  outline: none;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.payBtn:hover {
+  background: #2c3e50;
+}
+
+@media only screen and (max-width: 770px) {
+  .paycontainer {
+    flex-direction: column;
+  }
 }
